@@ -98,11 +98,12 @@
 .description {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
-    max-width: 75%;
-    margin: 0 auto;
+    max-width: 50%;
+    margin: 20px auto;
     border-style: solid;
     border-color: var(--lightblue);
     border-width: 1px;    
@@ -136,7 +137,8 @@
 .summary h2,
 .project-tasks h2,
 .project-skills h2,
-.team h2 {
+.team h2,
+.project-document h2 {
     color: var(--lightblue);
     text-align: center;
     margin-bottom: 40px;
@@ -175,6 +177,18 @@
     color: var(--lightblue);
     transform: translateX(5px);
 }
+
+/* ---------------------- */
+/* DOCUMENT               */
+/* ---------------------- */
+
+.project-document {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 20%;
+}
+
 
 /* ---------------------- */
 /* TASKS                  */
@@ -219,13 +233,26 @@
 .task-images img {
     max-width: 400px;
     height: auto;
+    object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease-in-out;
 }
 
-.task-images img:hover {
+.project-image:hover {
     transform: scale(1.03);
+    cursor: pointer;
+}
+
+.project-image.large {
+    transform: scale(2);
+    z-index: 1;
+    transition: transform 0.3s ease-in-out;
+
+}
+
+.project-image.large:hover {
+    transform: scale(1.9);
 }
 
 .highlight {

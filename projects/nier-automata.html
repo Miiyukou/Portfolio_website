@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NieR: Automata - Julien Martinez</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+  <section class="project-main">
+    <img src="/assets/img/covers/NieRAutomataCover.png" alt="NieR: Automata">
+    <div class="project-main-text">
+      <h1>NieR: Automata</h1>
+      <ul class="project-general-info">
+        <li>Objective: Feature recreation</li>
+        <li>Development Time: 2 days</li>
+        <li>Type: Personal Project</li>
+        <li>Platform: PC</li> 
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="description">
+      <p>For 2 days, I decided to train my understanding of coding with the recreation of an existing feature: the pod from NieR: Automata. </p>
+    </div>
+  </section>
+
+  <section class="summary">
+    <h2>Contents</h2>
+    <ul>
+        <li><a href="/projects/nier-automata.html#shoot">Pod shoot</a></li>
+        <li><a href="/projects/nier-automata.html#program">Pod program</a></li>
+        <li><a href="/projects/nier-automata.html#lock">Lock enemies</a></li>
+        <li><a href="/projects/nier-automata.html#skills">Skills worked on</a></li>
+    </ul>
+  </section>
+
+  <section class="project-tasks">
+        <h2 id="shoot">Pod shoot</h2>
+        <div class="task-item">
+          <div class="task-text">
+            <ul>
+              <li>As in the original game, the pod can <span class="highlight">shoot</span> to enemies and destroy some of their projectiles.</li>
+              <li>Visually thhe pod <span class="highlight">move downwards</span> when it starts shooting, and get back to its original position when its done.</li>
+            </ul>
+          </div>
+          <div class="task-images">
+            <img class="project-image" src="/assets/img/gifs/nier_shoot.gif" alt="NieR: Automata shoot recreation">
+            <img class="project-image" src="/assets/img/gifs/nier_shoot-ref.gif" alt="NieR: Automata shoot reference">
+          </div>  
+            
+        </div>
+
+        <h2 id="program">Pod program</h2>
+        <div class="task-item">
+          <div class="task-text">
+            <ul>
+              <li>In NieR: Automata, the pod can get different "super attacks" with cooldown. I chose to make the first one. <span class="highlight">knock down</span> guards. This feature has been recreated in this project too.</li>
+              <li>The pod shoots a <span class="highlight">laser</span> in front of it or towards a locked enemy. To add a feeling of power, <span class="highlight">time slows</span> when the laser shoots.</li>
+            </ul>
+          </div>
+          <div class="task-images">
+            <img class="project-image" src="/assets/img/gifs/nier_program.gif" alt="NieR: Automata program recreation">
+            <img class="project-image" src="/assets/img/gifs/nier_program-ref.gif" alt="NieR: Automata program reference">
+          </div>
+        </div>
+
+        <h2 id="lock">Lock enemies</h2>
+        <div class="task-item">
+          <div class="task-text">
+            <ul>
+              <li>Although it's not directly a feature from the pod, I decided to do the enemy locking. It is very useful and helps the pod shoots on <span class="highlight">specific enemies</span>.</li>
+              <li>When locked, the enemy stays at the <span class="highlight">center of the camera</span> and the player can move around.</li>
+            </ul>
+          </div>
+          <div class="task-images">
+            <img class="project-image" src="/assets/img/gifs/nier_lock.gif" alt="NieR: Automata lock recreation">
+            <img class="project-image" src="/assets/img/gifs/nier_lock-ref.gif" alt="NieR: Automata lock reference">
+          </div>  
+  </section>
+
+  <section class="project-skills">
+    <h2 id="skills">Skills worked on</h2>
+    <div class="skills-container">  
+        <div class="skills-category">
+          <div class="skills-logos">
+            <div class="skill">
+              <img src="/assets/img/logos/unrealengine.png" alt="Unreal Engine">
+              <p>Unreal Engine 5</p>
+              <ul>
+                <li>> OOP with C++ Blueprints</li>
+                <li>> Simple feedback</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  </section>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

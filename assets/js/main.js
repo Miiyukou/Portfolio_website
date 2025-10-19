@@ -78,3 +78,24 @@ function setupSectionObserver(navLinks) {
         observer.observe(section);
     });
 }
+
+
+const images = document.querySelectorAll(".project-image");
+
+images.forEach(img => {
+  img.addEventListener("click", (e) => {
+    e.stopPropagation(); // prevent click from propagating in the Document
+
+    if (img.classList.contains("large")) {
+      img.classList.remove("large");
+    } else {
+      images.forEach(i => i.classList.remove("large"));
+      img.classList.add("large");
+    }
+  });
+});
+
+// remove large when clicking
+document.addEventListener("click", () => {
+  images.forEach(i => i.classList.remove("large"));
+});

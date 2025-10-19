@@ -89,6 +89,11 @@ nav a[aria-current="true"] {
     font-weight: bold;
 }
 
+section,
+h2 {
+    scroll-margin-top: 120px;
+}
+
 /* ---------------------- */
 /* FOOTER                 */
 /* ---------------------- */
