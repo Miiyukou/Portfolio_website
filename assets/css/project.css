@@ -1,0 +1,351 @@
+/* ---------------------- */
+/* MAIN                   */
+/* ---------------------- */
+.project-main {
+    position: relative;
+    height: 60vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    z-index: 0;
+}
+
+.project-main img {
+    width: 100%;
+    height: 130%;
+    object-fit: cover;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    z-index: -1;
+}
+
+.project-main-text {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 25px;
+    max-width: 800px;    
+    background-color: #18191bcc;
+}
+
+.project-main-text h1 {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    color: var(--lightblue);
+}
+
+.project-general-info {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;  
+}
+
+.project-general-info li {
+    padding: 8px;
+    font-weight: bold;
+}
+
+/* ---------------------- */
+/* VIDEO                  */
+/* ---------------------- */
+
+.project-video {
+    padding: 50px 0 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.video-container {
+    position: relative;
+    width: 45%;
+    padding-bottom: 25%;
+    height: 0;    
+    margin: 0 auto;
+    max-width: 900px;
+    overflow: hidden;
+    border-radius: 25px;
+}  
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* ---------------------- */
+/* DESCRIPTION            */
+/* ---------------------- */
+
+.description {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    color: white;
+    max-width: 75%;
+    margin: 0 auto;
+    border-style: solid;
+    border-color: var(--lightblue);
+    border-width: 1px;    
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.description a {
+    text-decoration: none;
+    color: var(--lightblue);
+    transition: color 0.2s;
+}
+
+.description a:hover {
+    color: white;
+}
+
+/* ---------------------- */
+/* TEXT                   */
+/* ---------------------- */
+
+.summary,
+.project-tasks,
+.project-skills,
+.team {
+    padding: 30px 10%;
+    background-color: var(--background_dark);
+    color: white;
+}
+
+.summary h2,
+.project-tasks h2,
+.project-skills h2,
+.team h2 {
+    color: var(--lightblue);
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ---------------------- */
+/* SUMMARY                */
+/* ---------------------- */
+
+.summary ul {
+    list-style: none;
+    padding: 20px;
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+    border-style: solid;
+    border-color: var(--lightblue);
+    border-width: 2px;    
+    border-radius: 10px;
+}
+
+.summary ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    transition: color 0.2s, transform 0.2s;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.summary ul li a:hover {
+    color: var(--lightblue);
+    transform: translateX(5px);
+}
+
+/* ---------------------- */
+/* TASKS                  */
+/* ---------------------- */
+
+.task-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 80px;
+    gap: 40px;
+    background-color: var(--darkblue);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 1);
+}
+
+.task-text {
+    flex: 1;
+    min-width: 300px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.task-text ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.task-text li {
+    margin-bottom: 25px;
+}
+
+.task-images {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.task-images img {
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease-in-out;
+}
+
+.task-images img:hover {
+    transform: scale(1.03);
+}
+
+.highlight {
+    color: var(--lightblue);
+    font-weight: bold;
+}
+
+.highlight-strong {
+    color: var(--lightblue);
+    font-weight: bolder;
+}
+
+/* ---------------------- */
+/* SKILLS                 */
+/* ---------------------- */
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.skills-category {
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    flex: 1;
+    min-width: 300px;
+    max-width: auto;
+}
+
+.skills-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--background_dark);
+    padding: 20px 25px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: var(--lightblue);
+    border-width: 3px 1px;
+}
+
+.skill img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+.skill p {
+    font-weight: bold;
+    color: var(--lightblue);
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.skill ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #dcdcdc;
+}
+
+.skill ul li {
+    margin-bottom: 5px;
+}
+
+/* ---------------------- */
+/* TEAM                   */
+/* ---------------------- */
+
+.team-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.team-list li {
+    background-color: var(--darkblue);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.team-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.team-list li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+.team-list li a:hover {
+    color: var(--lightblue);
+}
+
+.team-list li span {
+    font-size: 0.95rem;
+    color: #dcdcdc;
+}

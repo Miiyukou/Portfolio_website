@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mr.Chaussette Battle Tournament - Julien Martinez</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+  <section class="project-main">
+    <img src="/assets/img/covers/MrChaussetteCover.png" alt="Mr.Chaussette Battle Tournament">
+    <div class="project-main-text">
+      <h1>Mr.Chaussette Battle Tournament</h1>
+      <ul class="project-general-info">
+        <li>Genre: Beat'em Up</li>
+        <li>Mode: 2-player</li>
+        <li>Development Time: 4 months</li>
+        <li>Team: 15 people</li>
+        <li>Platform: PC</li> 
+      </ul>
+    </div>
+  </section>
+
+  <section class="project-video">
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/0RRU9e3pGjY" title="MrChaussette Battle Tournament" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section>
+    <div class="description">
+      <p>This project was made as the final year project. We decided to change the original idea of <a href="mrchaussette-bt-vs.html">Mr.Chaussette Battle Tournament</a> to now be a Beat'em Up so the project could evolve and easily add new features.
+      <br>We used the Versus Fighting project to redo and improve the multiplayer part, the camera and the attack system.</p>
+    </div>
+  </section>
+
+  <section class="summary">
+    <h2>Contents</h2>
+    <ul>
+        <li><a href="mrchaussette-battle-tournament.html#movement">Characters' movement</a></li>
+        <li><a href="mrchaussette-battle-tournament.html#attacks">Attack system</a></li>
+        <li><a href="mrchaussette-battle-tournament.html#animation">Animation integration</a></li>
+        <li><a href="mrchaussette-battle-tournament.html#enemies">Enemy AI</a></li>
+        <li><a href="mrchaussette-battle-tournament.html#feedback">Feedback</a></li>
+        <li><a href="mrchaussette-battle-tournament.html#debug">QA and debugging</a></li>
+        <li><a href="mrchaussette-battle-tournament.html#skills">Skills worked on</a></li>
+        <li><a href="mrchaussette-battle-tournament.html#team">Team members</a></li>
+    </ul>
+  </section>
+
+  <section class="project-tasks">
+        <h2 id="movement">Characters' movement</h2>
+        <div class="task-item">
+          <div class="task-text">
+            <ul>
+              <li>To simulate the movements of a classic <strong class="highlight-strong">Beat'em up game</strong>, we decided to <span class="highlight">constrain the movement</span> to left and right only for the 2D part. The up and down directions are only added later in the level.</li>
+              <li>Jumping works the same as most Beat'em Up and Fighting Games ; there is <span class="highlight">no air control</span>. The direction of a jump is decided with a <span class="highlight">directional input</span>.</li>
+              <li>Characters always <span class="highlight">face the camera</span>, especially the 2D character, in order to avoid any visual oddities.</li>
+              <li>As the Vertical Slice ends with a <span class="highlight">fight between the two characters</span>, everything was designed so that the Beat'em Up and the Fighting Game parts remain similar.</li>
+            </ul>
+          </div>
+          <div class="task-images">
+            <img src="/assets/img/gifs/mrc_camera.gif" alt="MrChaussette Camera">
+            <img src="/assets/img/gifs/mrc_movement.gif" alt="MrChaussette Movement">
+          </div>  
+            
+        </div>
+
+        <h2 id="attacks">Attack system</h2>
+        <div class="task-item">
+          <div class="task-text">
+            <ul>
+              <li>Each character has their own set of attacks, which are always a <span class="highlight">3-hit combo, a special attack, an air attack and a special air attack</span>.</li>
+              <li>The special attacks are always <span class="highlight">different for each character</span>: the 2D character has a dash that deals damage at the end of the movement and a projectile launched vertically in front of her for her air special.
+                The 3D character's ground special attack makes him jump, while the air special launch a projectile in a diagonal line.</li>
+              <li>All attacks follow the same order of <span class="highlight">Startup, Active and Recovery frames</span> based on the animation.</li>
+              <li>There is also a <span class="highlight">cancel attack system</span>, allowing some attacks to end sooner to combo with a new one ; the 3-hit combo works with this system, and each of these 3 attacks can be canceled into the ground special attack.</li>
+            </ul>
+          </div>
+          <div class="task-images">
+            <img src="/assets/img/gifs/mrc_combo.gif" alt="MrChaussette Combo">
+            <img src="/assets/img/gifs/mrc_special.gif" alt="MrChaussette Special Attack">
+            <img src="/assets/img/screenshots/mrc_frames.png" alt="MrChaussette Frame System">
+          </div>
+        </div>
+
+        <h2 id="animation">Animation Integration</h2>
+        <div class="task-item">
+          <div class="task-text">
+            <ul>
+              <li>As the project has both a 3D and a 2D character, two separate methods has been used :</li>
+              <ul>
+                <li>The 3D character has an <span class="highlight">animation blueprint</span>, which follows the actual movement state of the character (Idle, Walking, Jumping) as well as the current attack.</li>
+                <li>Since the 2D character cannot have an animation blueprint because there is no skeleton, I worked with a <span class="highlight">2D Paper Flipbook</span>. A function was made to select the correct flipbook to play for each state like the other character.</li>
+              </ul>
+            </ul>
+          </div>
+          <div class="task-images">
+            <img src="/assets/img/screenshots/mrc_animtree.png" alt="MrChaussette Animation Tree">
+            <img src="/assets/img/screenshots/mrc_flipbook.png" alt="MrChaussette Flipbook">
+          </div>
+        </div>
+
+        <h2 id="enemies">Enemy AI</h2>
+        <div class="task-item">
+          <div class="task-text">
+            <ul>
+              <li>All enemies follows a simple logic ; they <span class="highlight">move</span> to a random character and then they <span class="highlight">attack</span> them. The target changes each time they lose their target before attacking.</li>
+              <li>Each enemy has their own health and speed, depending of their <span class="highlight">archetype</span> (Light, Fast, and Heavy).</li>
+              <li>The heavy enemy takes <span class="highlight">reduced damage</span> when attacked from the font. To deal a normal amount of damage, characters have to strike in their back.</li>
+            </ul>
+          </div>
+          <div class="task-images">
+            <img src="/assets/img/screenshots/mrc_ai.png" alt="MrChaussette AI Tree">
+            <img src="/assets/img/gifs/mrc_enemies.gif" alt="MrChaussette Enemies">
+          </div>
+        </div>
+
+        <h2 id="feedback">Feedback</h2>
+        <div class="task-item">
+          <div class="task-text">
+            <ul>
+              <li>Feedback was the <span class="highlight">most challenging part</span> to do, but also one of the more important.</li>
+              <li>To achieve good feedback, some points were important :</li>
+              <ul>
+                <li>Hitting an enemy causes <span class="highlight">hitstop</span> – it freezes the character and this enemy to give a feeling of power. Enemies hit turn red and get in their hit animation.</li>
+                <li>A <span class="highlight">VFX</span> spawns at the location where the enemy was hit.</li>
+                <li>Hitstop and a hit animation also happen when a character is hit.</li>
+              </ul>
+            </ul>
+          </div>
+          <div class="task-images">
+            <img src="/assets/img/gifs/mrc_feedback.gif" alt="MrChaussette Feedback">
+          </div>
+        </div>
+
+        <h2 id="debug">QA and Debugging</h2>
+        <div class="task-item">
+          <div class="task-text">
+            <ul>
+              <li>During playtests, a lot of bugs were <strong class="highlight-strong">reported on Mantis BT</strong> and were treated by priority.</li>
+              <li>A lot of these bugs affecting the game's quality were simple errors, quickly resolvable. </li>
+              <li>Feedback was the source of <span class="highlight">a lot of bugs</span>, especially the hitstop. It was sometimes set multiple times because of a combo and so the character could not move for seconds. To solve this, hitstop was only set to certain attacks.</li>
+            </ul>
+          </div>
+          <div class="task-images">
+            <img src="/assets/img/screenshots/mrc_mantisbt.png" alt="MrChaussette Bug Report">
+          </div>
+        </div>
+  </section>
+
+  <section class="project-skills">
+    <h2 id="skills">Skills worked on</h2>
+    <div class="skills-container">  
+        <div class="skills-category">
+          <div class="skills-logos">
+            <div class="skill">
+              <img src="/assets/img/logos/unrealengine.png" alt="Unreal Engine">
+              <p>Unreal Engine 5</p>
+              <ul>
+                <li>> OOP with C++ Blueprints</li>
+                <li>> Behavior Tree</li>
+                <li>> Animation Tree & 2D Paper Flipbook</li>
+                <li>> System architecture planned with Draw.io</li>
+                <li>> Architecture shared using PowerPoint</li>
+              </ul>
+            </div>
+            <div class="skill">
+              <img src="/assets/img/logos/tortoisesvn.png" alt="TortoiseSVN">
+              <p>TortoiseSVN</p>
+              <ul>
+                <li>> Managed repository</li>
+                <li>> Trained team members</li>
+              </ul>
+            </div>
+            <div class="skill">
+              <img src="/assets/img/logos/mantisbt.png" alt="MantisBT">
+              <p>Mantis BT</p>
+              <ul>
+                <li>> Reported bugs after playtesting</li>
+                <li>> Debugged issues using the priority system</li>
+              </ul>
+            </div>
+            <div class="skill">
+              <img src="/assets/img/logos/jira.png" alt="Jira">
+              <p>Jira</p>
+              <ul>
+                <li>> Used to track tasks and deadlines</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  </section>
+
+  <section class="team">
+    <h2 id="team">Team members</h2>
+    <ul class="team-list">
+      <li>
+        <a href="https://vincentd38.wixsite.com/my-site" target="_blank">Vincent Dumont</a>
+        <span>Producer</span>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/c%C3%A9line-dumont-6b5582194/" target="_blank">Céline Dumont</a>
+        <span>Producer</span>
+      </li>
+      <li>
+        <a href="https://www.artstation.com/kaeloo" target="_blank">Fadilla Mecheti--Selmi</a>
+        <span>Character & Animation Artist</span>
+      </li>
+      <li>
+        <a href="https://www.artstation.com/cldieu" target="_blank">Claire Dieu</a>
+        <span>Character & Animation Artist</span>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/dylan-charlery-16aba7165/" target="_blank">Dylan Charlery</a>
+        <span>Tech Designer</span>
+      </li>
+      <li>
+        <a href="/index.html" target="_blank">Julien Martinez</a>
+        <span>Tech Designer</span>
+      </li>
+      <li>
+        <a href="https://www.artstation.com/charolait" target="_blank">Charlélie Gutierrez</a>
+        <span>Environment & Concept Artist</span>
+      </li>
+      <li>
+        <a href="https://martelnicolaspro.wixsite.com/portfolio" target="_blank">Nicolas Martel</a>
+        <span>Level Designer</span>
+      </li>
+      <li>
+        <a href="https://alexistheron2911.wixsite.com/atheron-portfolio" target="_blank">Alexis Theron</a>
+        <span>Level & Game Designer</span>
+      </li>
+      <li>
+        <a href="https://gabriel93200.wixsite.com/groleas-gabriel" target="_blank">Gabriel Groleas</a>
+        <span>System Designer</span>
+      </li>
+      <li>
+        <a href="https://www.artstation.com/clairedeleage" target="_blank">Claire Déléage</a>
+        <span>Environment Artist</span>
+      </li>      
+      <li>
+        <a href="https://www.artstation.com/julia_scr" target="_blank">Julia Sicre</a>
+        <span>Environment Artist</span>
+      </li>
+      <li>
+        <a href="https://www.artstation.com/andrea_martinoty" target="_blank">Andréa Martinoty</a>
+        <span>Environment Artist</span>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/hugo-gaspar-23092002/" target="_blank">Hugo Gaspar</a>
+        <span>UI/UX Designer</span>
+      </li>
+      <li>
+        <a href="https://www.artstation.com/fykho" target="_blank">Anthony Caballero</a>
+        <span>VFX Artist</span>
+      </li>
+  </section>
+    
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

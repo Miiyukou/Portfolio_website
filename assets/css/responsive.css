@@ -1,0 +1,10 @@
+@media (max-width: 1400px) {
+    #hero-text::before,
+    #hero-text::after {
+        background-color: transparent;
+    }
+
+    #project-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
