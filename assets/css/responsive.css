@@ -1,3 +1,88 @@
+/* ---------------------- */
+/* MOBILE                 */
+/* ---------------------- */
+
+@media (max-width: 768px) {
+
+/* HEADER & FOOTER */
+    header, footer {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    header {
+        flex-wrap: wrap;
+        justify-content: center;
+        height: auto;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        gap: 15px;
+    }
+
+    .foot-separator {
+        width: 100%;
+    }
+
+    .foot-wrapper {
+        flex-direction: column;
+    }
+
+/* HERO */
+    #hero {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    #hero-img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        margin-top: 40px;
+    }
+
+    #hero h1 {
+        font-size: 2.5rem;
+    }
+
+/* PROJECT-GRID */
+    #project-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+
+
+/* PROJECT */
+    .task-item {
+        flex-direction: column;
+    }
+
+    .task-text {
+        min-width: 100%;
+        word-wrap: break-word;
+    }
+
+    .task-text ul {
+        margin-left: 0;
+        padding-left: 20px;
+    }
+
+    .task-images img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .project-general-info {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+}
+
+/* ---------------------- */
+/* MEDIUM SCREEN          */
+/* ---------------------- */
+
 @media (max-width: 1400px) {
     #hero-text::before,
     #hero-text::after {
