@@ -8,202 +8,203 @@
 </head>
 
 <body>
-  <section class="project-main">
-    <img src="/assets/img/covers/MrChaussette23Cover.png" alt="Mr.Chaussette Battle Tournament">
-    <div class="project-main-text">
-      <h1>Mr.Chaussette Battle Tournament</h1>
-      <ul class="project-general-info">
-        <li>Genre: Versus Fighting</li>
-        <li>Mode: 2-player</li>
-        <li>Development Time: 4 weeks</li>
-        <li>Team: 8 people</li>
-        <li>Platform: PC</li> 
+  <main>
+    <section class="project-main">
+      <img src="/assets/img/covers/MrChaussette23Cover.png" alt="Mr.Chaussette Battle Tournament">
+      <div class="project-main-text">
+        <h1>Mr.Chaussette Battle Tournament</h1>
+        <ul class="project-general-info">
+          <li>Genre: Versus Fighting</li>
+          <li>Mode: 2-player</li>
+          <li>Development Time: 4 weeks</li>
+          <li>Team: 8 people</li>
+          <li>Platform: PC</li> 
+        </ul>
+      </div>
+    </section>
+
+    <section class="project-video">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/dlFcM6YbfmY" title="MrChaussette Battle Tournament" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section>
+      <div class="description">
+        <p>This project was a end-of-year project where we decided to explore a new genre we never designed: Versus Fighting. 
+          <br>It was a challenging and ambitious project, especially since I was the only Tech Designer.</p>
+      </div>
+    </section>
+
+    <section class="summary">
+      <h2>Contents</h2>
+      <ul>
+          <li><a href="/projects/mrchaussette-bt-vs.html#multiplayer">Local Multiplayer</a></li>
+          <li><a href="/projects/mrchaussette-bt-vs.html#actions">Characters' actions</a></li>
+          <li><a href="/projects/mrchaussette-bt-vs.html#attacks">Attack system</a></li>
+          <li><a href="/projects/mrchaussette-bt-vs.html#round">Round system</a></li>
+          <li><a href="/projects/mrchaussette-bt-vs.html#flowchart">Flowchart</a></li>
+          <li><a href="/projects/mrchaussette-bt-vs.html#skills">Skills worked on</a></li>
+          <li><a href="/projects/mrchaussette-bt-vs.html#team">Team members</a></li>
       </ul>
-    </div>
-  </section>
+    </section>
 
-  <section class="project-video">
-    <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/dlFcM6YbfmY" title="MrChaussette Battle Tournament" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </section>
-
-  <section>
-    <div class="description">
-      <p>This project was a end-of-year project where we decided to explore a new genre we never designed: Versus Fighting. 
-        <br>It was a challenging and ambitious project, especially since I was the only Tech Designer.</p>
-    </div>
-  </section>
-
-  <section class="summary">
-    <h2>Contents</h2>
-    <ul>
-        <li><a href="/projects/mrchaussette-bt-vs.html#multiplayer">Local Multiplayer</a></li>
-        <li><a href="/projects/mrchaussette-bt-vs.html#actions">Characters' actions</a></li>
-        <li><a href="/projects/mrchaussette-bt-vs.html#attacks">Attack system</a></li>
-        <li><a href="/projects/mrchaussette-bt-vs.html#round">Round system</a></li>
-        <li><a href="/projects/mrchaussette-bt-vs.html#flowchart">Flowchart</a></li>
-        <li><a href="/projects/mrchaussette-bt-vs.html#skills">Skills worked on</a></li>
-        <li><a href="/projects/mrchaussette-bt-vs.html#team">Team members</a></li>
-    </ul>
-  </section>
-
-  <section class="project-tasks">
-        <h2 id="multiplayer">Local Multiplayer</h2>
-        <div class="task-item">
-          <div class="task-text">
-            <ul>
-              <li><span class="highlight">Two player controllers</span> can be spawned to play with a second controller.</li>
-              <li>The camera is set to <span class="highlight">stay between the two characters</span>.</li>
-              <li>Because of a lack of time during this project, characters are <span class="highlight">automatically assigned</span> to each player controller.</li>
-              <li>A single blueprint serves as a <span class="highlight">parent</span> for each different character. It stores all shared code, such as <span class="highlight">basic movement and attacks</span>.</li>
-            </ul>
-          </div>
-          <div class="task-images">
-            <img class="project-image" src="/assets/img/screenshots/mrc23_spawn.png" alt="MrChaussette Spawn Player">
-            <img class="project-image" src="/assets/img/screenshots/mrc23_camera.png" alt="MrChaussette Camera">
-          </div>  
-            
-        </div>
-
-        <h2 id="actions">Characters' actions</h2>
-        <div class="task-item">
-          <div class="task-text">
-            <ul>
-                <li>Each move and attack has a <span class="highlight">frame data</span> composed of <span class="highlight">Startup, Active and Recovery</span> frames.</li>
-                <li>Attacks has their unique <span class="highlight">pushback, stun and damage</span> values and spawns a custom <span class="highlight">hitbox</span> during the active frames.</li>
-                <li>Going backwards will <span class="highlight">block</span> incoming attacks, preventing them to deal damage. Blocking while standing only block <span class="highlight">normal and overhead</span> attacks while <span class="highlight">crouch-blocking</span> blocks <span class="highlight">normal and low</span> attacks.</li>
-                <li>Alongside their attacks, each character has their own unique <span class="highlight">super attack</span> and a <span class="highlight">grab</span>, explained in the section below.</li>
-            </ul>
-          </div>
-          <div class="task-images">
-            <img class="project-image" src="/assets/img/screenshots/mrc23_attackstats.png" alt="MrChaussette Attack Blueprint">
-            <img class="project-image" src="/assets/img/gifs/mrc23_block.gif" alt="MrChaussette Block">
-          </div>
-        </div>
-
-        <h2 id="attacks">Attack system</h2>
-        <div class="task-item">
-          <div class="task-text">
-            <ul>
-                <li>Each character has its own <span class="highlight">set of attacks</span>, including a <span class="highlight">light, heavy and special attack</span> combined with a <span class="highlight">left joystick input</span>.</li> 
-                <li>If a player pushes this joystick up, their character will jump which allow <span class="highlight">air attacks</span>. Moving forward while attacking can lead to different results than attacking without moving.</li>
-                <li>Doing or receiving damage will increase the <span class="highlight">Hype Meter</span>, and using the <span class="highlight">"super"</span> input when it's full will empty the meter and make a unique attack.</li>
-                <li>Characters can also <span class="highlight">grab</span> their opponent, damaging and preventing them to attack or move for a short period of time.</li>
-                <li>Each attack has a <span class="highlight">frame data</span> manually written in the code, according to the system documents and animations.</li>
-            </ul>
-          </div>
-          <div class="task-images">
-            <img class="project-image" src="/assets/img/gifs/mrc23_attack.gif" alt="MrChaussette Attack">
-            <img class="project-image" src="/assets/img/gifs/mrc23_super.gif" alt="MrChaussette Super">
-            <img class="project-image" src="/assets/img/screenshots/mrc23_aframes.png" alt="MrChaussette Active Frames">
-          </div>
-        </div>
-
-        <h2 id="round">Round system</h2>
-        <div class="task-item">
-          <div class="task-text">
-            <ul>
-              <li>Starting a fight will start a <span class="highlight">round</span>. In the first one, each player's character has 2 lifes. Loosing a round will <span class="highlight">remove one life</span> and start the next one. The first player to remove all of their opponent's lives wins.</li>
-              <li>A timer of 99 seconds runs down during each round. When it reaches 0, the character with the less amount of health looses a life.</li>
-            </ul>
-          </div>
-          <div class="task-images">
-            <img class="project-image" src="/assets/img/screenshots/mrc23_win.png" alt="MrChaussette WinByHealth">
-          </div>
-        </div>
-
-        <h2 id="flowchart">Flowchart</h2>
-        <div class="task-item">
-          <div class="task-text">
-            <ul>
-              <li>To get a better idea of how attacks could be designed, a <span class="highlight">flowchart</span> has been made during pre-production. You can download it <a href="/assets/files/MrC_AttacksFlowchart.pdf" download="MrC_Flowchart.pdf" class="txt-download">here</a>.</li>
-            </ul>
-          </div>
-          <div class="task-images">
-            <img class="project-image" src="/assets/img/screenshots/mrc23_flowchart.png" alt="MrChaussette Flowchart">
-          </div>
-        </div>
-  </section>
-
-  <section class="project-skills">
-    <h2 id="skills">Skills worked on</h2>
-    <div class="skills-container">  
-        <div class="skills-category">
-          <div class="skills-logos">
-            <div class="skill">
-              <img src="/assets/img/logos/unrealengine.png" alt="Unreal Engine">
-              <p>Unreal Engine 5</p>
+    <section class="project-tasks">
+          <h2 id="multiplayer">Local Multiplayer</h2>
+          <div class="task-item">
+            <div class="task-text">
               <ul>
-                <li>> OOP with C++ Blueprints</li>
-                <li>> Animation Tree & 2D Paper Flipbook</li>
-                <li>> Design presented using PowerPoint</li>
+                <li><span class="highlight">Two player controllers</span> can be spawned to play with a second controller.</li>
+                <li>The camera is set to <span class="highlight">stay between the two characters</span>.</li>
+                <li>Because of a lack of time during this project, characters are <span class="highlight">automatically assigned</span> to each player controller.</li>
+                <li>A single blueprint serves as a <span class="highlight">parent</span> for each different character. It stores all shared code, such as <span class="highlight">basic movement and attacks</span>.</li>
               </ul>
             </div>
-            <div class="skill">
-              <img src="/assets/img/logos/tortoisesvn.png" alt="TortoiseSVN">
-              <p>TortoiseSVN</p>
+            <div class="task-images">
+              <img class="project-image" src="/assets/img/screenshots/mrc23_spawn.png" alt="MrChaussette Spawn Player">
+              <img class="project-image" src="/assets/img/screenshots/mrc23_camera.png" alt="MrChaussette Camera">
+            </div>  
+              
+          </div>
+
+          <h2 id="actions">Characters' actions</h2>
+          <div class="task-item">
+            <div class="task-text">
               <ul>
-                <li>> Managed repository</li>
-                <li>> Trained team members</li>
+                  <li>Each move and attack has a <span class="highlight">frame data</span> composed of <span class="highlight">Startup, Active and Recovery</span> frames.</li>
+                  <li>Attacks has their unique <span class="highlight">pushback, stun and damage</span> values and spawns a custom <span class="highlight">hitbox</span> during the active frames.</li>
+                  <li>Going backwards will <span class="highlight">block</span> incoming attacks, preventing them to deal damage. Blocking while standing only block <span class="highlight">normal and overhead</span> attacks while <span class="highlight">crouch-blocking</span> blocks <span class="highlight">normal and low</span> attacks.</li>
+                  <li>Alongside their attacks, each character has their own unique <span class="highlight">super attack</span> and a <span class="highlight">grab</span>, explained in the section below.</li>
               </ul>
             </div>
-            <div class="skill">
-              <img src="/assets/img/logos/drawio.png" alt="Drawio">
-              <p>Draw.io</p>
-              <ul>
-                <li>> Made a flowchart to design attacks</li>
-                <li>> Iterations on systems design</li>
-              </ul>
-            </div>
-            <div class="skill">
-              <img src="/assets/img/logos/trello.png" alt="Trello">
-              <p>Trello</p>
-              <ul>
-                <li>> Used to track tasks and deadlines</li>
-              </ul>
+            <div class="task-images">
+              <img class="project-image" src="/assets/img/screenshots/mrc23_attackstats.png" alt="MrChaussette Attack Blueprint">
+              <img class="project-image" src="/assets/img/gifs/mrc23_block.gif" alt="MrChaussette Block">
             </div>
           </div>
-        </div>
-  </section>
 
-  <section class="team">
-    <h2 id="team">Team members</h2>
-    <ul class="team-list">
-      <li>
-        <a href="https://vincentd38.wixsite.com/my-site" target="_blank">Vincent Dumont</a>
-        <span>Producer</span>
-      </li>
-      <li>
-        <a href="https://www.artstation.com/kaeloo" target="_blank">Fadilla Mecheti--Selmi</a>
-        <span>Character & Animation Artist</span>
-      </li>
-      <li>
-        <a href="https://www.artstation.com/cldieu" target="_blank">Claire Dieu</a>
-        <span>Character & Animation Artist</span>
-      </li>
-      <li>
-        <a href="/index.html" target="_blank">Julien Martinez</a>
-        <span>Tech Designer</span>
-      </li>
-      <li>
-        <a href="https://martelnicolaspro.wixsite.com/portfolio" target="_blank">Nicolas Martel</a>
-        <span>Level Designer</span>
-      </li>
-      <li>
-        <a href="https://gabriel93200.wixsite.com/groleas-gabriel" target="_blank">Gabriel Groleas</a>
-        <span>System Designer</span>
-      </li>  
-      <li>
-        <a href="https://www.artstation.com/julia_scr" target="_blank">Julia Sicre</a>
-        <span>Environment Artist</span>
-      </li>
-      <li>
-        <a href="https://www.artstation.com/fykho" target="_blank">Anthony Caballero</a>
-        <span>VFX Artist</span>
-      </li>
-  </section>    
+          <h2 id="attacks">Attack system</h2>
+          <div class="task-item">
+            <div class="task-text">
+              <ul>
+                  <li>Each character has its own <span class="highlight">set of attacks</span>, including a <span class="highlight">light, heavy and special attack</span> combined with a <span class="highlight">left joystick input</span>.</li> 
+                  <li>If a player pushes this joystick up, their character will jump which allow <span class="highlight">air attacks</span>. Moving forward while attacking can lead to different results than attacking without moving.</li>
+                  <li>Doing or receiving damage will increase the <span class="highlight">Hype Meter</span>, and using the <span class="highlight">"super"</span> input when it's full will empty the meter and make a unique attack.</li>
+                  <li>Characters can also <span class="highlight">grab</span> their opponent, damaging and preventing them to attack or move for a short period of time.</li>
+                  <li>Each attack has a <span class="highlight">frame data</span> manually written in the code, according to the system documents and animations.</li>
+              </ul>
+            </div>
+            <div class="task-images">
+              <img class="project-image" src="/assets/img/gifs/mrc23_attack.gif" alt="MrChaussette Attack">
+              <img class="project-image" src="/assets/img/gifs/mrc23_super.gif" alt="MrChaussette Super">
+              <img class="project-image" src="/assets/img/screenshots/mrc23_aframes.png" alt="MrChaussette Active Frames">
+            </div>
+          </div>
 
+          <h2 id="round">Round system</h2>
+          <div class="task-item">
+            <div class="task-text">
+              <ul>
+                <li>Starting a fight will start a <span class="highlight">round</span>. In the first one, each player's character has 2 lifes. Loosing a round will <span class="highlight">remove one life</span> and start the next one. The first player to remove all of their opponent's lives wins.</li>
+                <li>A timer of 99 seconds runs down during each round. When it reaches 0, the character with the less amount of health looses a life.</li>
+              </ul>
+            </div>
+            <div class="task-images">
+              <img class="project-image" src="/assets/img/screenshots/mrc23_win.png" alt="MrChaussette WinByHealth">
+            </div>
+          </div>
+
+          <h2 id="flowchart">Flowchart</h2>
+          <div class="task-item">
+            <div class="task-text">
+              <ul>
+                <li>To get a better idea of how attacks could be designed, a <span class="highlight">flowchart</span> has been made during pre-production. You can download it <a href="/assets/files/MrC_AttacksFlowchart.pdf" download="MrC_Flowchart.pdf" class="txt-download">here</a>.</li>
+              </ul>
+            </div>
+            <div class="task-images">
+              <img class="project-image" src="/assets/img/screenshots/mrc23_flowchart.png" alt="MrChaussette Flowchart">
+            </div>
+          </div>
+    </section>
+
+    <section class="project-skills">
+      <h2 id="skills">Skills worked on</h2>
+      <div class="skills-container">  
+          <div class="skills-category">
+            <div class="skills-logos">
+              <div class="skill">
+                <img src="/assets/img/logos/unrealengine.png" alt="Unreal Engine">
+                <p>Unreal Engine 5</p>
+                <ul>
+                  <li>> OOP with C++ Blueprints</li>
+                  <li>> Animation Tree & 2D Paper Flipbook</li>
+                  <li>> Design presented using PowerPoint</li>
+                </ul>
+              </div>
+              <div class="skill">
+                <img src="/assets/img/logos/tortoisesvn.png" alt="TortoiseSVN">
+                <p>TortoiseSVN</p>
+                <ul>
+                  <li>> Managed repository</li>
+                  <li>> Trained team members</li>
+                </ul>
+              </div>
+              <div class="skill">
+                <img src="/assets/img/logos/drawio.png" alt="Drawio">
+                <p>Draw.io</p>
+                <ul>
+                  <li>> Made a flowchart to design attacks</li>
+                  <li>> Iterations on systems design</li>
+                </ul>
+              </div>
+              <div class="skill">
+                <img src="/assets/img/logos/trello.png" alt="Trello">
+                <p>Trello</p>
+                <ul>
+                  <li>> Used to track tasks and deadlines</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+    </section>
+
+    <section class="team">
+      <h2 id="team">Team members</h2>
+      <ul class="team-list">
+        <li>
+          <a href="https://vincentd38.wixsite.com/my-site" target="_blank">Vincent Dumont</a>
+          <span>Producer</span>
+        </li>
+        <li>
+          <a href="https://www.artstation.com/kaeloo" target="_blank">Fadilla Mecheti--Selmi</a>
+          <span>Character & Animation Artist</span>
+        </li>
+        <li>
+          <a href="https://www.artstation.com/cldieu" target="_blank">Claire Dieu</a>
+          <span>Character & Animation Artist</span>
+        </li>
+        <li>
+          <a href="/index.html" target="_blank">Julien Martinez</a>
+          <span>Tech Designer</span>
+        </li>
+        <li>
+          <a href="https://martelnicolaspro.wixsite.com/portfolio" target="_blank">Nicolas Martel</a>
+          <span>Level Designer</span>
+        </li>
+        <li>
+          <a href="https://gabriel93200.wixsite.com/groleas-gabriel" target="_blank">Gabriel Groleas</a>
+          <span>System Designer</span>
+        </li>  
+        <li>
+          <a href="https://www.artstation.com/julia_scr" target="_blank">Julia Sicre</a>
+          <span>Environment Artist</span>
+        </li>
+        <li>
+          <a href="https://www.artstation.com/fykho" target="_blank">Anthony Caballero</a>
+          <span>VFX Artist</span>
+        </li>
+    </section>    
+  </main>
   <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
