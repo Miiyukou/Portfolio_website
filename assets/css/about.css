@@ -57,7 +57,7 @@
     padding: 10px;
 
     border-style: solid;
-    border-width: 3px 1px;
+    border-width: 3px;
     border-color: var(--lightblue);
     border-radius: 15px;
 }
