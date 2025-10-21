@@ -1,6 +1,12 @@
 fetch("../../partials/header.html")
 .then(response => response.text())
 .then(html => {
+    const isProjectPage = window.location.pathname.includes('/projects/');
+    if (isProjectPage) {
+        html = html.replace(/href="\//g, 'href="../');
+    } else {
+        html = html.replace(/href="\//g, 'href="');
+    }
     document.body.insertAdjacentHTML("afterbegin", html);
     const navLinks = document.querySelectorAll("nav > ul > li > a, .dropdown-content a"); // Selects main navigation links and dropdown links
     highlightActivePage(navLinks); // Highlight active page on load
@@ -44,6 +50,12 @@ function highlightActivePage(navLinks) {
 fetch("../../partials/footer.html")
 .then(response => response.text())
 .then(html => {
+    const isProjectPage = window.location.pathname.includes('/projects/');
+    if (isProjectPage) {
+        html = html.replace(/href="\//g, 'href="../');
+    } else {
+        html = html.replace(/href="\//g, 'href="');
+    }
     document.body.insertAdjacentHTML("beforeend", html);
 })
 .catch(err => {console.error("Failed loading footer", err)});
