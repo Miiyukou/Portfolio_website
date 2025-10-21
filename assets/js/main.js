@@ -1,4 +1,4 @@
-fetch("partials/header.html")
+fetch("../../partials/header.html")
 .then(response => response.text())
 .then(html => {
     document.body.insertAdjacentHTML("afterbegin", html);
@@ -41,7 +41,7 @@ function highlightActivePage(navLinks) {
     });
 }
 
-fetch("partials/footer.html")
+fetch("../../partials/footer.html")
 .then(response => response.text())
 .then(html => {
     document.body.insertAdjacentHTML("beforeend", html);
