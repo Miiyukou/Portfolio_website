@@ -1,4 +1,4 @@
-fetch("../../partials/header.html")
+fetch(`${partialsBase}partials/header.html`)
 .then(response => response.text())
 .then(html => {
     const isProjectPage = window.location.pathname.includes('/projects/');
@@ -13,6 +13,15 @@ fetch("../../partials/header.html")
     setupSectionObserver(navLinks); // Pass navLinks to observer
 })
 .catch(err => {console.error("Failed loading header", err)});
+
+const isProjectPage = window.location.pathname.includes('/projects/');
+let partialsBase = '';
+
+if (isProjectPage) {
+    partialsBase = '../';
+} else {
+    partialsBase = '';
+}
 
 function highlightActivePage(navLinks) {
     const currentPath = window.location.pathname; // Gets current page path ("about.html"...)
@@ -47,7 +56,7 @@ function highlightActivePage(navLinks) {
     });
 }
 
-fetch("../../partials/footer.html")
+fetch(`${partialsBase}partials/footer.html`)
 .then(response => response.text())
 .then(html => {
     const isProjectPage = window.location.pathname.includes('/projects/');
