@@ -1,4 +1,4 @@
-fetch("/partials/header.html")
+fetch("partials/header.html")
 .then(response => response.text())
 .then(html => {
     document.body.insertAdjacentHTML("afterbegin", html);
@@ -9,7 +9,7 @@ fetch("/partials/header.html")
 .catch(err => {console.error("Failed loading header", err)});
 
 function highlightActivePage(navLinks) {
-    const currentPath = window.location.pathname; // Gets current page path ("/about.html"...)
+    const currentPath = window.location.pathname; // Gets current page path ("about.html"...)
     const currentHash = window.location.hash; // Gets current URL hash ("#projects", ...)
     let projectParentLinkActivated = false; // Flag to track if the main "Projects" link has been activated
 
@@ -33,15 +33,15 @@ function highlightActivePage(navLinks) {
             }
         }
         // Special handling for project pages when on a project detail page
-        // If currentPath starts with "/projects/" and the link is the main "Projects" link
-        else if (currentPath.startsWith("/projects/") && linkPath.includes("/index.html") && linkHash === "#projects" && !projectParentLinkActivated) { // Checks if current page is a project detail and this is the main "Projects" link
+        // If currentPath starts with "projects/" and the link is the main "Projects" link
+        else if (currentPath.startsWith("projects/") && linkPath.includes("index.html") && linkHash === "#projects" && !projectParentLinkActivated) { // Checks if current page is a project detail and this is the main "Projects" link
             link.setAttribute("aria-current", "true"); // Sets main "Projects" link as active (indicating a child project is active)
             projectParentLinkActivated = true; // Mark parent as activated
         }
     });
 }
 
-fetch("/partials/footer.html")
+fetch("partials/footer.html")
 .then(response => response.text())
 .then(html => {
     document.body.insertAdjacentHTML("beforeend", html);
