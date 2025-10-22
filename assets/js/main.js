@@ -10,22 +10,14 @@ if (isProjectPage) {
 fetch(`${partialsBase}partials/header.html`)
 .then(response => response.text())
 .then(html => {
-    console.log("1. Received header HTML:", html); // DEBUG
     if (isProjectPage) {
         html = html.replace(/(href|src)="\//g, '$1="../');
     } else {
         html = html.replace(/(href|src)="\//g, '$1="');
     }
-    console.log("2. Modified header HTML:", html); // DEBUG
-
-    console.log("3. Inserting header into body..."); // DEBUG
     document.body.insertAdjacentHTML("afterbegin", html);
-    console.log("4. Header should now be in the DOM."); // DEBUG
-
     const navLinks = document.querySelectorAll("nav > ul > li > a, .dropdown-content a"); // Selects main navigation links and dropdown links
-    highlightActivePage(navLinks); // Highlight active page on load
-    setupSectionObserver(navLinks); // Pass navLinks to observer
-})
+
 .catch(err => {console.error("Failed loading header", err)});
 
 function highlightActivePage(navLinks) {
