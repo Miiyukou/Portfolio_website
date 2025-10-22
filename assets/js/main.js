@@ -17,7 +17,9 @@ fetch(`${partialsBase}partials/header.html`)
     }
     document.body.insertAdjacentHTML("afterbegin", html);
     const navLinks = document.querySelectorAll("nav > ul > li > a, .dropdown-content a"); // Selects main navigation links and dropdown links
-
+    highlightActivePage(navLinks); // Highlight active page on load
+    setupSectionObserver(navLinks); // Pass navLinks to observer
+})
 .catch(err => {console.error("Failed loading header", err)});
 
 function highlightActivePage(navLinks) {
