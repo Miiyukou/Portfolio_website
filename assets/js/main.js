@@ -11,11 +11,10 @@ fetch(`${partialsBase}partials/header.html`)
 .then(response => response.text())
 .then(html => {
     if (isProjectPage) {
-        html = html.replace(/href="\//g, 'href="../');
+        html = html.replace(/(href|src)="\//g, '$1="../');
     } else {
-        html = html.replace(/href="\//g, 'href="');
+        html = html.replace(/(href|src)="\//g, '$1="');
     }
-    document.body.insertAdjacentHTML("afterbegin", html);
     const navLinks = document.querySelectorAll("nav > ul > li > a, .dropdown-content a"); // Selects main navigation links and dropdown links
     highlightActivePage(navLinks); // Highlight active page on load
     setupSectionObserver(navLinks); // Pass navLinks to observer
@@ -59,9 +58,9 @@ fetch(`${partialsBase}partials/footer.html`)
 .then(response => response.text())
 .then(html => {
     if (isProjectPage) {
-        html = html.replace(/href="\//g, 'href="../');
+        html = html.replace(/(href|src)="\//g, '$1="../');
     } else {
-        html = html.replace(/href="\//g, 'href="');
+        html = html.replace(/(href|src)="\//g, '$1="');
     }
     document.body.insertAdjacentHTML("beforeend", html);
 })
